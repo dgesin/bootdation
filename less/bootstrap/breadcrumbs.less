@@ -1,0 +1,87 @@
+//
+// Breadcrumbs
+// --------------------------------------------------
+
+
+// make work with line-height changes?
+// ie default????
+// contextual breadcrumbs
+
+.breadcrumb {
+  margin: 0 0 @baseLineHeight;
+  background:#f5f5f5;
+  list-style: none;
+  >li {
+    line-height:22.652px!important;
+    display: inline-block;
+    .ie7-inline-block();
+	margin: 0 4px 0 0;s
+	&:before, &:after {
+		width:0;
+		height:0;
+		border-left: 7px solid white;
+		border-top: 18px solid transparent;
+		border-bottom: 18px solid transparent;
+		content:"";
+		position:absolute;
+		top:-8px;
+	}
+	&:after {
+		border-left: 8px solid #ddd;
+	}
+	&:hover {
+		//background:darken(@tableBorder, 10%);
+
+		&:after {
+			border-left: 8px solid darken(@tableBorder, 10%);
+		}
+		.dropdown-menu {
+			display:block;
+			li {
+				a {
+					background:transparent;
+					&:hover {
+						background:@blue;
+					}
+				}
+			}
+		}
+	}
+	b.caret {
+		border-top-color:@grayDark;
+		position:relative;
+		top:9px;
+		left:6px;
+	}
+	.dropdown-menu {
+		position:absolute;
+		width:auto;
+		top:@baseLineHeight + 5;
+	}
+	a {
+	   .transition(none);
+		background:@tableBorder;
+		padding: 10px 14px 10px 20px;
+		&:hover {
+			text-decoration:none;
+			background:darken(@tableBorder, 10%);
+		}
+	}
+
+  }
+  .active {
+	//display:none;
+	padding: 8px 16px 8px 20px;
+	background-color: @blue;
+	color:@white;
+	font-weight:bold;
+	&:before {
+		border-left: 7px solid white;
+		top:0;
+		left:0;
+	}
+	&:after {
+		border:0
+	}
+  }
+}

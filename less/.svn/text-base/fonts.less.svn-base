@@ -1,0 +1,25 @@
+/**
+ * Fonts.less
+ * Adds custom fonts to presentation
+ * ---------------------------------
+ * IMPORTANT NOTES:
+ * Internet Explorer only supports EOT
+ * Mozilla browsers support OTF and TTF
+ * Safari and Opera support OTF, TTF and SVG
+ * Chrome supports TTF and SVG.
+
+ * @font-face example
+ 
+	@font-face {
+		font-family: 'ChunkFiveRegular;
+		src: url('../fonts/Chunkfive-webfont.eot);
+		src: local(‚ò∫'),
+			 url('../fonts/Chunkfive-webfont.woff') format('woff'),
+			 url('../fonts/Chunkfive-webfont.ttf') format('truetype'),
+			 url('../fonts/Chunkfive-webfont.svg#webfont') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	}
+
+ */
+

@@ -1,0 +1,38 @@
+@media only screen and (max-width: 767px) {
+	table.responsive { 
+		margin-bottom: 0;
+		td, th {
+			position: relative;
+			white-space: nowrap;
+			&:first-child {
+				display: none;
+			}
+		}
+	}
+	.pinned { 
+		position:absolute;
+		top:0;
+		left: 0;
+		width: 35%;
+		overflow: scroll;
+		overflow-y: hidden;
+		border-right: 1px solid @tableBorder;
+		border-left: 1px solid @tableBorder;
+		table {
+			margin-bottom: 0;
+		}
+		table th, table td {
+			white-space: nowrap;
+		}
+	}
+	div.table-wrapper { 
+		margin-bottom: 20px;
+		overflow: hidden;
+		border-right: 1px solid @tableBorder;
+		div.scrollable {
+			margin-left: 35%;
+			overflow: scroll;
+			overflow-y: hidden;
+		}
+	}
+}
