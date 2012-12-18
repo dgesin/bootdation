@@ -2,86 +2,89 @@
 // Breadcrumbs
 // --------------------------------------------------
 
-
 // make work with line-height changes?
 // ie default????
 // contextual breadcrumbs
 
 .breadcrumb {
+  padding: 8px 15px;
   margin: 0 0 @baseLineHeight;
-  background:#f5f5f5;
   list-style: none;
-  >li {
-    line-height:22.652px!important;
-    display: inline-block;
-    .ie7-inline-block();
-	margin: 0 4px 0 0;s
-	&:before, &:after {
-		width:0;
-		height:0;
-		border-left: 7px solid white;
-		border-top: 18px solid transparent;
-		border-bottom: 18px solid transparent;
-		content:"";
-		position:absolute;
-		top:-8px;
-	}
-	&:after {
-		border-left: 8px solid #ddd;
-	}
-	&:hover {
-		//background:darken(@tableBorder, 10%);
+  background-color: #f5f5f5;
+  .border-radius(@baseBorderRadius);
+  .active {
+    color: @grayLight;
+  }
+}
+.breadcrumb > li {
+  display: inline-block;
+  .ie7-inline-block();
+  text-shadow: 0 1px 0 @white;
+}
+.divider {
+  padding: 0 5px;
+  color: #ccc;
+}
 
-		&:after {
-			border-left: 8px solid darken(@tableBorder, 10%);
+.breadcrumb.block {
+	padding:0;
+	background:white;
+	li {
+		margin: 0 4px 0 0;
+		&:before {
+		  width:0;
+		  height:0;
+		  border-left: 7px solid white;
+		  border-top: 18px solid transparent;
+		  border-bottom: 18px solid transparent;
+		  content:"";
+		  position:absolute;
+		  top:-8px;
 		}
-		.dropdown-menu {
-			display:block;
-			li {
-				a {
-					background:transparent;
-					&:hover {
-						background:@blue;
-					}
+		&:after {
+			border-left: 8px solid @tableBorder;
+		}
+		a {
+			background:@tableBorder;
+			line-height:22.652px!important;
+			padding: 10px 14px 10px 20px;
+			.transition(none);
+			&:after {
+				width:0;
+				height:0;
+				border-left: 8px solid @tableBorder;
+				border-top: 18px solid transparent;
+				border-bottom: 18px solid transparent;
+				content:"";
+				position:absolute;
+				right:-8px;
+				top:-6px;
+			}
+			&:hover {
+				background:darken(@tableBorder, 10%);
+				text-decoration:none;
+				&:after {
+					border-left: 8px solid darken(@tableBorder, 10%);
 				}
 			}
 		}
 	}
-	b.caret {
-		border-top-color:@grayDark;
-		position:relative;
-		top:9px;
-		left:6px;
-	}
-	.dropdown-menu {
-		position:absolute;
-		width:auto;
-		top:@baseLineHeight + 5;
-	}
-	a {
-	   .transition(none);
-		background:@tableBorder;
-		padding: 10px 14px 10px 20px;
-		&:hover {
-			text-decoration:none;
-			background:darken(@tableBorder, 10%);
+	.active {
+		padding: 8px 16px 8px 20px;
+		background-color: @blue;
+		color:@white;
+		font-weight:bold;
+		text-shadow: 0 1px 0 @blueDark;
+		&:before {
+			border-left: 7px solid white;
+			top:0;
+			left:0;
+		}
+		&:after {
+			border:0
 		}
 	}
-
-  }
-  .active {
-	//display:none;
-	padding: 8px 16px 8px 20px;
-	background-color: @blue;
-	color:@white;
-	font-weight:bold;
-	&:before {
-		border-left: 7px solid white;
-		top:0;
-		left:0;
+	.divider {
+		display:none;
 	}
-	&:after {
-		border:0
-	}
-  }
 }
