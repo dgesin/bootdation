@@ -9,25 +9,27 @@
   z-index: @zindexTooltip;
   display: block;
   visibility: visible;
-  padding: 5px;
-  font-size: 11px;
+  font-size: @fontSizeMini;
+  line-height: 1.4;
   .opacity(0);
-  &.in     { .opacity(80); }
-  &.top    { margin-top:  -3px; }
-  &.right  { margin-left:  3px; }
-  &.bottom { margin-top:   3px; }
-  &.left   { margin-left: -3px; }
+
+  &.in     { .opacity(1); }
+  &.top    { margin-top:  -3px; padding: 5px 0; }
+  &.right  { margin-left:  3px; padding: 0 5px; }
+  &.bottom { margin-top:   3px; padding: 5px 0; }
+  &.left   { margin-left: -3px; padding: 0 5px; }
 }
 
 // Wrapper for the tooltip content
 .tooltip-inner {
-  max-width: 200px;
+  min-width: @tooltipMinWidth;
+  max-width: @tooltipMaxWidth;
   padding: 3px 8px;
   color: @tooltipColor;
   text-align: center;
   text-decoration: none;
-  background-color: @tooltipBackground;
-  .border-radius(@baseBorderRadius);
+  background-color: @tooltipBg;
+  border-radius: @borderRadius;
 }
 
 // Arrows
@@ -43,6 +45,18 @@
     bottom: 0;
     left: 50%;
     margin-left: -@tooltipArrowWidth;
+    border-width: @tooltipArrowWidth @tooltipArrowWidth 0;
+    border-top-color: @tooltipArrowColor;
+  }
+  &.top-left .tooltip-arrow {
+    bottom: 0;
+    left: 5px;
+    border-width: @tooltipArrowWidth @tooltipArrowWidth 0;
+    border-top-color: @tooltipArrowColor;
+  }
+  &.top-right .tooltip-arrow {
+    bottom: 0;
+    right: 5px;
     border-width: @tooltipArrowWidth @tooltipArrowWidth 0;
     border-top-color: @tooltipArrowColor;
   }
@@ -64,6 +78,18 @@
     top: 0;
     left: 50%;
     margin-left: -@tooltipArrowWidth;
+    border-width: 0 @tooltipArrowWidth @tooltipArrowWidth;
+    border-bottom-color: @tooltipArrowColor;
+  }
+  &.bottom-left .tooltip-arrow {
+    top: 0;
+    left: 5px;
+    border-width: 0 @tooltipArrowWidth @tooltipArrowWidth;
+    border-bottom-color: @tooltipArrowColor;
+  }
+  &.bottom-right .tooltip-arrow {
+    top: 0;
+    right: 5px;
     border-width: 0 @tooltipArrowWidth @tooltipArrowWidth;
     border-bottom-color: @tooltipArrowColor;
   }

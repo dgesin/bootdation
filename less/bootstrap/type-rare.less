@@ -1,0 +1,93 @@
+// Type - Rare
+// Rare tags that are not normally used but may require support
+// -------------------------------------------------------------------
+
+
+// Prevents sub and sup affecting line-height in all browsers (nm v2.1.2)
+// -------------------------------------------------------------------
+
+sub,
+sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+
+// Addresses styling not present in IE 8/9. (nm v2.1.2)
+mark {
+    background: @yellow;
+    color: @textColor;
+}
+
+// Description Lists
+dl {
+  margin-bottom: @lineHeight;
+}
+dt,
+dd {
+  line-height: @lineHeight;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-left: 0; // Undo browser default
+}
+// Horizontal layout (like forms)
+.dl.horizontal {
+  .clearfix(); // Ensure dl clears floats if empty dd elements present
+  dt {
+    float: left;
+    width: @horizontalComponentOffset - 20;
+    clear: left;
+    text-align: right;
+    .text-overflow();
+  }
+  dd {
+    margin-left: @horizontalComponentOffset;
+  }
+}
+
+// Abbreviations and acronyms
+abbr[title],
+// Added data-* attribute to help out our tooltip plugin, per https://github.com/twitter/bootstrap/issues/5257
+abbr[data-original-title] {
+  cursor: help;
+  border-bottom: 1px dotted @abbrBorderColor;
+}
+abbr.initialism {
+  font-size: 90%;
+  text-transform: uppercase;
+}
+
+// Emphasis
+b              { font-weight: bold; }
+dfn            { font-style: italic; }
+cite           { font-style: normal; }
+
+// Quotes
+q { 
+    quotes: "\201C" "\201D" "\2018" "\2019";
+}
+q:before,
+q:after,
+blockquote:before,
+blockquote:after {
+  content: "";
+}
+
+// Addresses
+address {
+  display: block;
+  margin-bottom: @lineHeightPx;
+  font-style: normal;
+  line-height: @lineHeight;
+}
+

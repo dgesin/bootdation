@@ -2,45 +2,136 @@
 // Basic and global styles for generating structural layout and page templates
 // -------------------------------------------------------------------------------------------
 
+// Box sizing for all
+*,
+*:before,
+*:after {
+  .box-sizing(border-box);
+}
+
+// Base settings 
+// -------------
+
+html {
+  font-size: 62.5%;
+  // Touch the Mobile Magic™
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  // Prevents iOS text size adjust after orientation change, without disabling user zoom. (nm v2.1.2)
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+// Disable iOS/WinMobile font size changes
+@media screen and (max-device-width: @screenPhone) {
+  html {
+    -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+  }
+}
 
 // Body reset
-// ----------
+// -----------
 
 body {
-  margin: 0; // removes default margin
-  font-family: @baseFontFamily;
-  font-size: @baseFontSize;
-  line-height: @baseLineHeight;
+  margin: 0; // removes default margin (nm v2.1.2)
+  font-family: @fontFamily;
+  font-size: @fontSize;
+  line-height: @lineHeight;
   color: @textColor;
-  background-color: @bodyBackground;
+  background-color: @bodyBg;
 }
 
-// Container (centered, fixed-width layouts)
-.container {
-  .container-fixed();
+// Reset fonts for relevant elements
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 
-// Fluid layouts (left aligned, with sidebar, min- & max-width content)
-.container-fluid {
-  margin: 0 auto;
-  max-width: @siteMaxWidth;
-  min-width: @siteMinWidth;
-  .clearfix();
+// Links
+// -----
+
+a {
+  background: transparent; // Remove the gray background color from active links in IE 10. (nm v2.1.2+)
+  color: @linkColor;
+  text-decoration: none;
+  .transition(0.1s ease-out);
 }
 
-// Fixed (940px)
-#grid > .core(@gridColumnWidth, @gridGutterWidth);
-
-// Fluid (940px)
-#grid > .fluid(@fluidGridColumnWidth, @fluidGridGutterWidth);
-
-// Reset utility classes due to specificity
-[class*="span"].hide,
-.row-fluid [class*="span"].hide {
-  display: none;
+// Hover & Active :: Improves readability when focused and also mouse hovered in all browsers.
+a:hover,
+a:active {
+  outline: 0;
 }
 
-[class*="span"].pull-right,
-.row-fluid [class*="span"].pull-right {
-  float: right;
+a:hover,
+a:focus {
+  color: @linkColorHover;
+  text-decoration: underline;
+}
+
+// Focus State (nm v2.1.2)
+a:focus {
+  .tab-focus();
+}
+
+
+// Images
+// -----------------------------------
+
+img {
+  // Responsive images (ensure images don't scale beyond their parents)
+  max-width: 100%; // Part 1: Set a maxium relative to the parent (nm v2.1.2)
+  width: auto\9; // IE8 needs help adjusting responsive images
+  height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching (nm v2.1.2)
+  vertical-align: middle; // Match vertical alignment with other comment elements (nm v2.1.2)
+  border: 0; // (nm v2.1.2)
+  -ms-interpolation-mode: bicubic;
+}
+
+.img-rounded {
+  border-radius: @borderRadiusLarge;
+}
+
+.img-circle {
+  border-radius: 50%;
+}
+
+// Addresses margin not present in IE 8/9 and Safari 5. (nm v2.1.2)
+figure {
+    margin: 0; 
+}
+
+// Prevent max-width from affecting Google Maps (nm v2.1.2)
+#map-canvas embed,
+#map-canvas img,
+#map-canvas object,
+.google-maps embed,
+.google-maps img,
+.google-maps object {
+  max-width: none!important;
+}
+
+// Horizontal rules
+// -----------------------------------
+
+hr {
+  margin: @lineHeightPx 0;
+  border: 0;
+  border-top: 1px solid @hrBorder;
+  border-bottom: 1px solid #fff;
+}
+/* Faded out hr */
+hr.soften {
+  height: 1px;
+  margin: @lineHeightPx 0;
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  border: 0;
 }

@@ -1,0 +1,87 @@
+// Type.less
+// ----------------------------------------------------------------------------------------
+
+// Body text
+// ---------
+
+p {
+  margin: 0;
+  .rem('margin-bottom', @lineHeightPx/2);
+  //margin: 0 0 @lineHeightPx / 2;
+}
+
+// Headings
+// -------------------------
+
+h1, h2, h3, h4, h5, h6 {
+  margin: @lineHeightPx 0 @lineHeightPx/2;
+  font-family: @headingsFontFamily;
+  font-weight: @headingsFontWeight;
+  line-height: @headingsLineHeight;
+  color: @headingsColor;
+  small {
+    font-size: 60%;
+    font-weight: normal;
+    line-height: 1;
+    color: @headingsSmallColor;
+  }
+}
+
+h1 { .font-size(round(@fontSize * 3.14285714285714)); }
+h2 { .font-size(round(@fontSize * 2.64285714285714)); }
+h3 { .font-size(round(@fontSize * 1.92857142857143)); }
+h4 { .font-size(round(@fontSize * 1.64285714285714)); }
+h5 { .font-size(round(@fontSize * 1.21428571428571)); }
+h6 { .font-size(@fontSize); }
+
+// Lists
+// -----
+
+// Unordered and Ordered lists
+ul, ol {
+  padding: 0;
+}
+li {
+  line-height: @lineHeight;
+}
+ul {
+  list-style: none;
+  margin: 0;
+}
+ol,
+.list,
+.list-circle,
+.list-square {
+  margin: @lineHeightPx 0 @lineHeightPx 20px;
+  li ul, 
+  li ol {
+    list-style: inherit;
+    margin-left: 20px;
+  }
+}
+.list { list-style: disc; }
+.list-circle { list-style-type: circle; }
+.list-square { list-style-type: square; }
+
+// Inline lists
+.list-inline {
+  .clearfix();
+  > li {
+    list-style: none;
+    float: left;
+    margin-right: 20px;
+    display: block;
+  }
+}
+.inline-list.pull-right {
+  > li {
+    margin-right: 0;
+    margin-left: 20px;
+  }
+
+}
+
+// Emphasis (sensible defaults)
+small          { font-size: 85%; }
+strong         { font-weight: bold; } // (nm v2.1.2)
+em             { font-style: italic; } // (nm v2.1.2)

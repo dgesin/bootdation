@@ -1,0 +1,28 @@
+//
+// Jumbotron
+// --------------------------------------------------
+
+.jumbotron {
+  padding: 30px;
+  margin-bottom: 30px;
+  font-size: round(@fontSize * 1.41);
+  font-weight: 200;
+  line-height: round(@lineHeight * 1.41);
+  color: @jumbotronLeadColor;
+  background-color: @jumbotronBg;
+  h1 {
+    line-height: 1;
+    color: @jumbotronHeadingColor;
+  }
+  p {
+    line-height: 1.4;
+  }
+
+  @media screen and (min-width: @screenTablet) {
+    padding: 50px 60px;
+    border-radius: @borderRadiusLarge; // Only round corners at higher resolutions
+    h1 {
+      font-size: (@fontSize * 4.5);
+    }
+  }
+}

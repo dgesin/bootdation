@@ -1,0 +1,226 @@
+// The Grid -- FOUNDATION
+
+#grid {
+  .core () {
+    .spanX (@index) when (@index > 0) {
+      (~".span@{index}, .row .span@{index}") { .span(@index); }
+      .spanX(@index - 1);
+    }
+    .spanX (@_) {}
+	
+    .offsetX (@index) when (@index > 0) {
+      (~".row .offset@{index}") { .offset(@index); }
+      .offsetX(@index - 1);
+    }
+    .offsetX (@_) {}
+	
+    .pushpullX (@index) when (@index > 1) {
+      (~".push@{index}") { .push(@index); }
+      (~".pull@{index}") { .pull(@index); }
+      .pushpullX(@index - 1);
+    }
+    .pushpullX (@_) {}
+
+    .offset (@columns) {
+      margin-left: percentage(@pxColumnWidth * @columns / @siteDefaultWidth);
+    }
+    .span (@columns) {
+      width: percentage(@pxColumnWidth * @columns / @siteDefaultWidth);
+    }
+	.push (@columns) {
+		left:percentage(@pxColumnWidth * @columns / @siteDefaultWidth);
+	}
+	.pull (@columns) {
+		right:percentage(@pxColumnWidth * @columns / @siteDefaultWidth);
+	}
+
+    // generate .spanX, .offsetX, .pushX and .pullX
+    .spanX (@gridColumns);
+    .offsetX (@gridColumns - 1);
+    .pushpullX (@gridColumns - 1);
+  }
+
+  .block-grid () {
+    ul.block-grid { 
+      display: block; 
+      overflow: hidden; 
+      padding: 0; 
+    }
+    ul.block-grid > li { 
+      display: block; 
+      height: auto; 
+      float: left; 
+    }
+    .upX(@index) when (@index > 4) {
+      (~".block-grid.up@{index}") { margin: 0 -8px; }
+      (~".block-grid.up@{index} > li") { width: 100% / @index; padding: 0 8px 8px; }
+      (~".block-grid.up@{index} > li:nth-child(@{index}n+1)") { clear: both; }
+      .upX(@index - 1);
+    }
+    .upX(@index) when (@index = 4) {
+      .block-grid.up4 { margin: 0 -10px; }
+      .block-grid.up4 > li { width: 25%; padding: 0 10px 10px; }
+      .block-grid.up4 > li:nth-child(4n+1) { clear: both; }
+      .upX(@index - 1);
+    }
+    .upX(@index) when (@index = 3) {
+      .block-grid.up3 { margin: 0 -12px; }
+      .block-grid.up3 > li { width: 33.33333%; padding: 0 12px 12px; }
+      .block-grid.up3 > li:nth-child(3n+1) { clear: both; }
+      .upX(@index - 1);
+    }
+    .upX(@index) when (@index = 2) {
+      .block-grid.up2 { margin: 0 -15px; }
+      .block-grid.up2 > li { width: 50%; padding: 0 15px 15px; }
+      .block-grid.up2 > li:nth-child(2n+1) { clear: both; }
+      .upX(@index - 1);
+    }
+    .upX(@index) when (@index = 1) {
+      .block-grid.up1 { margin: 0; }
+      .block-grid.up1 > li { width: 100%; padding: 0 0 15px; }
+    }
+    .upX (@_) {}
+    .upX(@gridColumns);
+  }
+
+  // Mobile 4-column Grid
+  .mobile-grid() {
+    .row .mobile-span1 { width: 25% !important; float: left; padding: 0 15px; }
+    .row .mobile-span1:last-child { float: right; }
+    .row .mobile-span1.end { float: left; }
+    .row.collapse .mobile-span1 { padding: 0; }
+    .row .mobile-span2 { width: 50% !important; float: left; padding: 0 15px; }
+    .row .mobile-span2:last-child { float: right; }
+    .row .mobile-span2.end { float: left; }
+    .row.collapse .mobile-span2 { padding: 0; }
+    .row .mobile-span3 { width: 75% !important; float: left; padding: 0 15px; }
+    .row .mobile-span3:last-child { float: right; }
+    .row .mobile-span3.end { float: left; }
+    .row.collapse .mobile-span3 { padding: 0; }
+    .row .mobile-span4 { width: 100% !important; float: left; padding: 0 15px; }
+    .row .mobile-span4:last-child { float: right; }
+    .row .mobile-span4.end { float: left; }
+    .row.collapse .mobile-span4 { padding: 0; }
+
+    .push1-mobile { left: 25%; }
+    .pull1-mobile { right: 25%; }
+    .push2-mobile { left: 50%; }
+    .pull2-mobile { right: 50%; }
+    .push3-mobile { left: 75%; }
+    .pull3-mobile { right: 75%; }
+
+    // Block Grids
+    .block-grid.mobile > li { float: none; width: 100%; margin-left: 0; }
+    .block-grid > li { clear: none; }
+    .upX(@index) when (@index > 4) {
+      (~".block-grid.mobile-up@{index} > li") { width: 100% / @index; }
+      (~".block-grid.mobile-up@{index} > li:nth-child(@{index}n+1)") { clear: both; }
+      .upX(@index - 1);
+    }
+    .upX(@index) when (@index = 4) {
+      .block-grid.mobile-up4 > li { width: 25%; }
+      .block-grid.mobile-up4 > li:nth-child(4n+1) { clear: both; }
+      .upX(@index - 1);
+    }
+    .upX(@index) when (@index = 3) {
+      .block-grid.mobile-up3 > li { width: 33.33333%; }
+      .block-grid.mobile-up3 > li:nth-child(3n+1) { clear: both; }
+      .upX(@index - 1);
+    }
+    .upX(@index) when (@index = 2) {
+      .block-grid.mobile-up2 > li { width: 50%; }
+      .block-grid.mobile-up2 > li:nth-child(2n+1) { clear: both; }
+      .upX(@index - 1);
+    }
+    .upX(@index) when (@index = 1) {
+      .block-grid.mobile-up1 > li { width: 100%; }
+    }
+    .upX (@_) {}
+    .upX(@gridColumns);
+  }
+
+}
+
+
+
+//
+// Grid
+// --------------------------------------------------
+
+// Set row and container styles (row acts as a container when without a container)
+.container, .row {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: @siteMaxWidth;
+  min-width: @siteMinWidth;
+  .clearfix();
+}
+
+// Nested rows
+.row .row { 
+  width: auto; 
+  max-width: none; 
+  min-width: 0; 
+  margin: 0 -15px; 
+}
+.row.collapse [class*="span"] { 
+  padding: 0; 
+}
+.row .row.collapse { 
+  margin: 0; 
+}
+
+// When a row is in a container, the row adheres to container
+.container > .row {
+  width: 100%;
+  max-width: none;
+  min-width: none;
+  margin: 0;
+}
+
+// Create global span styles
+[class*="span"] { 
+  float: left; 
+  min-height: 1px; 
+  padding: 0 @gridGutterWidth/2;
+  position: relative; 
+}
+[class*="span"].centered, 
+[class*="span"].centered { 
+  float: none; 
+  margin: 0 auto; 
+}
+[class*="span"] + [class*="span"]:last-child { 
+  float: right; 
+}
+[class*="span"] + [class*="span"].end { 
+  float: left; 
+}
+
+#grid > .core();
+
+// Responsive: Tablets and up
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 728px;
+  }
+}
+
+// Responsive: Desktops and up
+@media screen and (min-width: 992px) {
+  .container {
+    max-width: 940px;
+  }
+}
+
+// Responsive: Large desktops and up
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1170px;
+  }
+}
+
+// Reset utility classes due to specificity
+[class*="span"].pull-right {
+  float: right;
+}

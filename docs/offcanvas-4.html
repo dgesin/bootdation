@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Off Canvas :: Sidebar on Mobile Only</title>
+    <link href="../style.css" rel="stylesheet">
+</head>
+
+<body id="page" class="off-canvas hide-extras">
+	<header>
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="container">
+			      <a class="btn btn-navbar" id="sidebarButton" href="#mobileMenu">
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </a>
+			      <a class="brand" href="#">Off canvas #4</a>
+			      <div class="nav-collapse collapse">
+			        <ul id="mainNav" class="nav">
+					  <li class="active">
+					    <a href="#">Home</a>
+					  </li>
+					  <li><a href="#">Link1</a></li>
+					  <li><a href="#">Link2</a></li>
+					  <li><a href="#">Link3</a></li>
+					</ul>
+					<p class="pull-right" style="margin:12px 15px 0 0;"><a href="foundation.php#offCanvas">Back to Bootdation</a></p>
+			      </div>
+				</div> <!-- .container -->
+			</div> <!-- .navbar-inner -->
+		</div> <!-- .navbar -->
+	</header>
+	<div class="container">
+		<section role="main" class="row">
+			<div class="span8">
+ 			    	<h3>Off Canvas Nav Sidebar on Mobile</h3>
+     				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget nulla massa. Sed ultricies posuere tincidunt. Morbi dolor est, aliquet quis egestas eu, consectetur nec neque. Etiam velit libero, congue eu accumsan sit amet, eleifend et sem. Donec ac felis sed sapien placerat venenatis. Fusce id tempus nunc. Vestibulum pellentesque vulputate tempus. Suspendisse sed consequat lectus. Nulla bibendum venenatis eros, elementum malesuada mi imperdiet eu. Fusce ornare gravida nulla, sed scelerisque sem scelerisque at.</p>
+				<p>Mauris consectetur elementum massa nec convallis. Integer mauris purus, condimentum vitae mattis a, vehicula lacinia justo. Pellentesque scelerisque orci at ligula cursus eu tempor elit euismod. Donec eleifend, turpis in vulputate eleifend, orci lectus eleifend quam, et ultrices mi nisi id nulla. Nullam est magna, varius nec consectetur vel, pellentesque ac justo. Vivamus commodo pellentesque ante, sed semper nulla congue non. Nunc nec augue sed nibh dapibus accumsan. Nullam in mauris quis lacus ultricies convallis. Morbi semper suscipit elit ut suscipit. Donec lobortis tellus lorem.</p>
+			</div>
+			<div class="span4">
+				<h4>Sidebar</h4>
+				<ul class="list">
+					<li><a href="#">Link to a Category</a></li>
+					<li><a href="#">Link to a Category</a></li>
+					<li><a href="#">Link to a Category</a></li>
+					<li><a href="#">Link to a Category</a></li>
+					<li><a href="http://en.wikipedia.org/wiki/The_Legend_of_Zelda:_A_Link_to_the_Past">Link to the Past</a></li>
+				</ul>
+			</div>
+		</section>
+	</div> <!-- .container -->
+   <footer class="site-footer row" role="contentinfo" style="margin-top:20px; text-align:center; font-size:9px; line-height:1.6">
+     <div class="span12">
+       Created by ZURB for Foundation 3, based on code from Jason Weaver and Luke Wroblewski
+     </div>
+   </footer>
+	<section id="mobileMenu" role="complementary" class="mobile-sidenav">
+		<nav id="sideMenu" role="navigation">
+			<ul id="sideMainNav" class="nav">
+				<li class="active"><a href="">Home</a></li>
+				<li><a href="">Link1</a></li>
+				<li><a href="">Link2 </a></li>
+				<li><a href="">Link3</a></li>
+			</ul>
+		</nav>
+	</section>
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="../js/base/jquery.js"></script>
+<script src="../js/plugins/bootstrap.min.js"></script>
+<script src="../js/plugins/jquery.offcanvas.js"></script>
+<script src="../js/plugins/google-code-prettify.min.js"></script>
+<script src="js/app.js"></script>
+</body>

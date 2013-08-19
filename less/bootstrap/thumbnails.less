@@ -1,42 +1,33 @@
 //
 // Thumbnails
-// --------------------------------------------------
+// -----------
 
+// Base classes
+// For thumbnail block-level composite components and simple image styles
 
-// Note: `.thumbnails` and `.thumbnails > li` are overriden in responsive files
-
-// Make wrapper ul behave like the grid
-.thumbnails {
-  margin-left: -@gridGutterWidth;
-  list-style: none;
-  .clearfix();
-}
-// Fluid rows have no left margin
-.row-fluid .thumbnails {
-  margin-left: 0;
-}
-
-// Float li to make thumbnails appear in a row
-.thumbnails > li {
-  float: left; // Explicity set the float since we don't require .span* classes
-  margin-bottom: @baseLineHeight;
-  margin-left: @gridGutterWidth;
-}
-
-// The actual thumbnail (can be `a` or `div`)
-.thumbnail {
-  display: block;
-  padding: 4px;
-  line-height: @baseLineHeight;
-  border: 1px solid #ddd;
-  .border-radius(@baseBorderRadius);
-  .box-shadow(0 1px 3px rgba(0,0,0,.055));
+// The actual thumbnailed element
+// Can be `a`, `div`, or `img`
+.thumbnail,
+.img-thumbnail {
+  padding: @thumbnailPadding;
+  line-height: @lineHeight;
+  background-color: @thumbnailBg;
+  border: 1px solid @thumbnailBorder;
+  border-radius: @thumbnailBorderRadius;
   .transition(all .2s ease-in-out);
 }
-// Add a hover state for linked versions only
-a.thumbnail:hover {
+.thumbnail {
+  display: block;
+}
+.thumbnail > img,
+.img-thumbnail {
+  display: inline-block;
+}
+
+// Add a hover/focus state for linked versions only
+a.thumbnail:hover,
+a.thumbnail:focus {
   border-color: @linkColor;
-  .box-shadow(0 1px 4px rgba(0,105,214,.25));
 }
 
 // Images and captions
@@ -47,6 +38,6 @@ a.thumbnail:hover {
   margin-right: auto;
 }
 .thumbnail .caption {
-  padding: 9px;
-  color: @gray;
+  padding: @thumbnailCaptionPadding;
+  color: @thumbnailCaptionColor;
 }

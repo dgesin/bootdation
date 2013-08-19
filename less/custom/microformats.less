@@ -1,0 +1,48 @@
+/* Microformats ---------------------- */
+
+.vevent {
+	span.summary {
+		font-weight:bold;
+	}
+	abbr {
+		cursor:default;
+		text-decoration:none;
+		font-weight:bold;
+		border:none;
+		padding: 0 1px;
+	}
+}
+
+.vcard {
+  display: inline-block;
+  margin:0 0 @lineHeight 0;
+  border: 1px solid @tableBorderColor;
+  padding: @paddingVertical @paddingHorizontal;
+	img {
+      float:left;
+     .square(48px);
+      border:1px solid @tableBorderColor;
+  }
+  > li {
+    margin: 0;
+    display: block;
+  }
+  .fn {
+    font-weight: 700;
+    .font-size(@fontSize + 1);
+  }
+}
+.vevent .summary {
+  font-weight: bold; 
+}
+.vevent abbr {
+  cursor: default;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  padding: 0 @paddingHorizontal; 
+}
+
+.hrecipe {
+	
+}

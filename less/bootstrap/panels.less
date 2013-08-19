@@ -1,0 +1,102 @@
+//
+// Panels
+// --------------------------------------------------
+
+
+// Base class
+.panel {
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: @panelBg;
+  border: 1px solid @panelBorder;
+  border-radius: @panelBorderRadius;
+  .box-shadow (0 1px 1px rgba(0,0,0,.05));
+}
+
+// Optional heading
+.panel-heading {
+  margin: -15px -15px 15px;
+  padding: 10px 15px;
+  background-color: @panelHeadingBg;
+  border-bottom: 1px solid @panelBorder;
+  border-top-left-radius:  (@panelBorderRadius - 1);
+  border-top-right-radius: (@panelBorderRadius - 1);
+}
+
+// Within heading, strip any `h*` tag of it's default margins for spacing.
+.panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: (@fontSize * 1.25);
+  font-weight: 500;
+}
+
+// Optional footer (stays gray in every modifier class)
+.panel-footer {
+  margin: 15px -15px -15px;
+  padding: 10px 15px;
+  background-color: @panelFooterBg;
+  border-top: 1px solid @panelBorder;
+  border-bottom-left-radius:  (@panelBorderRadius - 1);
+  border-bottom-right-radius: (@panelBorderRadius - 1);
+}
+
+// Contextual variations
+.panel.primary {
+  border-color: @panelPrimaryBorder;
+  .panel-heading {
+    color: @panelPrimaryText;
+    background-color: @panelPrimaryHeadingBg;
+    border-color: @panelPrimaryBorder;
+  }
+}
+.panel.success {
+  border-color: @panelSuccessBorder;
+  .panel-heading {
+    color: @panelSuccessText;
+    background-color: @panelSuccessHeadingBg;
+    border-color: @panelSuccessBorder;
+  }
+}
+.panel.warning {
+  border-color: @panelWarningBorder;
+  .panel-heading {
+    color: @panelWarningText;
+    background-color: @panelWarningHeadingBg;
+    border-color: @panelWarningBorder;
+  }
+}
+.panel.danger {
+  border-color: @panelDangerBorder;
+  .panel-heading {
+    color: @panelDangerText;
+    background-color: @panelDangerHeadingBg;
+    border-color: @panelDangerBorder;
+  }
+}
+.panel.info {
+  border-color: @panelInfoBorder;
+  .panel-heading {
+    color: @panelInfoText;
+    background-color: @panelInfoHeadingBg;
+    border-color: @panelInfoBorder;
+  }
+}
+
+// List groups in panels
+.list-group-flush {
+  margin: 15px -15px -15px;
+
+  .list-group-item {
+    border-width: 1px 0;
+
+    // Remove border radius for top one
+    &:first-child {
+      .border-top-radius(0);
+    }
+    // But keep it for the last one
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}

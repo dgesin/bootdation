@@ -1,0 +1,17 @@
+/* Mobile grid */
+@media only screen and (max-width: 767px) {
+  // Set row styles
+  .row { width: auto; min-width: 0; margin-left: 0; margin-right: 0; }
+
+  // Set column styles
+  [class*="span"]  { width: auto !important; float: none; }
+  [class*="span"]:last-child { float: none; }
+  [class*="span"] + [class*="span"]:last-child { float: none; }
+  [class*="span"]:before, [class*="span"]:after { content: ""; display: table; }
+  [class*="span"]:after, [class*="span"]:after { clear: both; }
+  [class*="offset"] { margin-left: 0 !important; }
+  [class*="push"]  { left: auto; }
+  [class*="pull"]  { right: auto; }
+
+ #grid > .mobile-grid();
+}

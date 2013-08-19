@@ -1,0 +1,118 @@
+// Larger lead paragraph
+p.lead {
+  .rem('margin-bottom', @lineHeightPx);
+  .font-size(round(@fontSize * 1.41));
+  font-weight: @fontWeight - 200;
+  @media (min-width: 768px) {
+    font-size: (@fontSize * 1.5);
+  }
+}
+
+// Page header
+.page-header {
+  .rem('padding-bottom', (@lineHeightPx / 2) - 1);
+  //padding-bottom: ((@lineHeightPx / 2) - 1);
+  margin: (@lineHeightPx * 2) 0 @lineHeightPx;
+  border-bottom: 1px solid @pageHeaderBorderColor;
+  h1, h2, h3, h4, h5, h6 {
+	margin-top:0;
+	line-height:1;
+  }
+}
+
+.subhead {
+  color: lighten(@textColor, 30%);
+  font-weight: @headingsFontWeight - 200;
+}
+
+.caps {
+  text-transform: uppercase;
+}
+
+// Emphasis
+// ---------
+
+// Contextual emphasis
+.text-muted          { color: @textMuted; }
+a.text-muted:hover,
+a.text-muted:focus   { color: darken(@textMuted, 10%); }
+
+.text-primary        { color: @brandPrimary; }
+a.text-warning:hover,
+a.text-warning:focus { color: darken(@brandPrimary, 10%); }
+
+.text-warning        { color: @warningText; }
+a.text-warning:hover,
+a.text-warning:focus { color: darken(@warningText, 10%); }
+
+.text-danger          { color: @dangerText; }
+a.text-error:hover,
+a.text-error:focus   { color: darken(@dangerText, 10%); }
+
+.text-success        { color: @successText; }
+a.text-success:hover,
+a.text-success:focus { color: darken(@successText, 10%); }
+
+.text-info           { color: @infoText; }
+a.text-info:hover,
+a.text-info:focus    { color: darken(@infoText, 10%); }
+
+// Alignment
+.text-left           { text-align: left; }
+.text-right          { text-align: right; }
+.text-center         { text-align: center; }
+
+// Blockquotes
+blockquote {
+  padding: 0 0 0 15px;
+  margin: 0 0 @lineHeightPx;
+  border-left: 2px solid @blockquoteBorderColor;
+  p {
+    font-size: (@fontSize * 1.25);
+    font-weight: 300;
+    line-height: 1.25;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+  cite { font-weight: 700; }
+  small {
+    display: block;
+    line-height: @lineHeight;
+    .font-size(@fontSize - 1);
+    color: @blockquoteSmallColor;
+    &:before {
+      content: "\2014 \00A0";
+    }
+    a {
+      color: @blockquoteSmallColor;
+      &:visited {
+        color: @blockquoteSmallColor;
+      }
+    }
+  }
+
+  // Float right with text-align: right
+  &.pull-right {
+    float: right;
+    padding-right: 15px;
+    padding-left: 0;
+    border-right: 5px solid @blockquoteBorderColor;
+    border-left: 0;
+    p,
+    small {
+      text-align: right;
+    }
+  }
+}
+
+.blockquote.pull-right {
+    small {
+      &:before {
+        content: '';
+      }
+      &:after {
+        content: '\00A0 \2014';
+      }
+    }
+}

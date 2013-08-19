@@ -1,25 +1,70 @@
-// UTILITY CLASSES
-// ---------------
+//
+// Utility classes
+// --------------------------------------------------
 
-// Quick floats
+
+// Floats
+// -------------------------
+
+.clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
 .pull-right {
-  float: right;
+  float: right!important;
 }
 .pull-left {
-  float: left;
+  float: left!important;
 }
+
 
 // Toggling content
+// -------------------------
 .hide {
-  display: none;
+  display: none !important;
 }
 .show {
-  display: block;
+  display: block !important;
+}
+.invisible {
+  visibility: hidden !important;
 }
 
-// Visibility
-.invisible {
-  visibility: hidden;
+// Only display content to screen readers
+// See: http://a11yproject.com/posts/how-to-hide-content/
+// -------------------------
+.sr-only { 
+  border: 0; 
+  clip: rect(0 0 0 0); 
+  height: 1px; 
+  margin: -1px; 
+  overflow: hidden; 
+  padding: 0; 
+  position: absolute; 
+  width: 1px; 
+}
+
+// Extends the .sr-only class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p
+.sr-only.focusable:active, 
+.sr-only.focusable:focus { 
+  clip: auto; 
+  height: auto; 
+  margin: 0; 
+  overflow: visible; 
+  position: static; 
+  width: auto;
+}
+
+
+// For image replacement
+.text-hide {
+  .hide-text();
 }
 
 // For Affix plugin
@@ -27,31 +72,17 @@
   position: fixed;
 }
 
-// Debugging panel
-#debug{
-  background:#ff0;
-  font:16px/1em serif;
-  padding:10px;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:20px;
-  z-index:5000;
+
+// CUSTOM -- REWORK ??
+// For styling custom vertical dividers with text (e.g. <span class="divider">|</span>)
+.divider {
+  padding: 0 5px;
+  color: @borderColor;
 }
 
-/* For image replacement */
-.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
-.ir br { display: none; }
-
-/* Hide from both screenreaders and browsers: h5bp.com/u */
-.hidden { display: none !important; visibility: hidden; }
-
-/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
-.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
-
-/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
-.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
-
-/* Chrome Frame Prompt */
-.chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
+.square {
+  border-radius: 0!important;
+  * {
+    border-radius: 0!important;
+  }
+}

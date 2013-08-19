@@ -2,40 +2,71 @@
 // Pager pagination
 // --------------------------------------------------
 
-
 .pager {
-  margin: @baseLineHeight 0;
+  padding-left: 0;
+  margin: @lineHeightPx 0;
   list-style: none;
   text-align: center;
   .clearfix();
+  li {
+    display: inline;
+    > a,
+    > span {
+      display: inline-block;
+      padding: 5px 14px;
+      background-color: @paginationBg;
+      border: 1px solid @paginationBorder;
+      border-radius: @pagerBorderRadius;
+    }
+
+    > a:hover,
+    > a:focus {
+      text-decoration: none;
+      background-color: @paginationActiveBg;
+    }
+  }
+
+  .next {
+    > a,
+    > span {
+      float: right;
+    }
+  }
+
+  .previous {
+    > a,
+    > span {
+      float: left;
+    }
+  }
+
+  .disabled {
+    > a,
+    > a:hover,
+    > a:focus,
+    > span {
+      color: @pagerDisabledColor;
+      background-color: @paginationBg;
+      cursor: not-allowed;
+    }
+  }
 }
-.pager li {
-  display: inline;
-}
-.pager li > a,
-.pager li > span {
-  display: inline-block;
-  padding: 5px 14px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  .border-radius(15px);
-}
-.pager li > a:hover {
-  text-decoration: none;
-  background-color: #f5f5f5;
-}
-.pager .next > a,
-.pager .next > span {
-  float: right;
-}
-.pager .previous > a,
-.pager .previous > span {
-  float: left;
-}
-.pager .disabled > a,
-.pager .disabled > a:hover,
-.pager .disabled > span {
-  color: @grayLight;
-  background-color: #fff;
-  cursor: default;
+
+.pager.plain {
+  li {
+    display: inline;
+    > a,
+    > span {
+      display: inline-block;
+      padding: 5px 0;
+      border: 0;
+      border-radius: 0;
+    }
+    > a:hover,
+    > a:focus {
+      text-decoration: underline;
+      background-color: transparent;
+      color: @linkColorHover;
+    }
+  }
 }

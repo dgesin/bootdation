@@ -2,89 +2,122 @@
 // Breadcrumbs
 // --------------------------------------------------
 
-// make work with line-height changes?
-// ie default????
-// contextual breadcrumbs
+// TODOS:
+// 1) ie default????
+// 2) contextual breadcrumbs
+// 3) refactor for changes made in v3
+// 4) make work with line-height changes?
 
 .breadcrumb {
   padding: 8px 15px;
-  margin: 0 0 @baseLineHeight;
+  margin: 0 0 @lineHeightPx;
   list-style: none;
-  background-color: #f5f5f5;
-  .border-radius(@baseBorderRadius);
-  .active {
-    color: @grayLight;
+  background-color: @breadcrumbBg;
+  border-radius: @borderRadius;
+  > li {
+    display: inline-block;
+    &+li:before {
+      content: "/\00a0"; // Unicode space added since inline-block means non-collapsing white-space
+      padding: 0 5px;
+     color: @breadcrumbColor;
+   }
+ }
+ > .active {
+   color: @breadcrumbActiveColor;
+ }
+  &.plain {
+    background-color: transparent;
+    padding: 0;
   }
-}
-.breadcrumb > li {
-  display: inline-block;
-  .ie7-inline-block();
-  text-shadow: 0 1px 0 @white;
-}
-.divider {
-  padding: 0 5px;
-  color: #ccc;
 }
 
 .breadcrumb.block {
-	padding:0;
-	background:white;
-	li {
-		margin: 0 4px 0 0;
-		&:before {
-		  width:0;
-		  height:0;
-		  border-left: 7px solid white;
-		  border-top: 18px solid transparent;
-		  border-bottom: 18px solid transparent;
-		  content:"";
-		  position:absolute;
-		  top:-8px;
-		}
-		&:after {
-			border-left: 8px solid @tableBorder;
-		}
-		a {
-			background:@tableBorder;
-			line-height:22.652px!important;
-			padding: 10px 14px 10px 20px;
-			.transition(none);
-			&:after {
-				width:0;
-				height:0;
-				border-left: 8px solid @tableBorder;
-				border-top: 18px solid transparent;
-				border-bottom: 18px solid transparent;
-				content:"";
-				position:absolute;
-				right:-8px;
-				top:-6px;
-			}
-			&:hover {
-				background:darken(@tableBorder, 10%);
-				text-decoration:none;
-				&:after {
-					border-left: 8px solid darken(@tableBorder, 10%);
-				}
-			}
-		}
-	}
-	.active {
-		padding: 8px 16px 8px 20px;
-		background-color: @blue;
-		color:@white;
-		font-weight:bold;
-		text-shadow: 0 1px 0 @blueDark;
-		&:before {
-			border-left: 7px solid white;
-			top:0;
-			left:0;
-		}
-		&:after {
-			border:0
-		}
-	}
-	.divider {
-		display:none;
-	}
+  padding:0;
+  background:white;
+  > li {
+    font-size: @fontSize;
+    margin: 0 4px 0 0;
+    &:before {
+      width:0;
+      height:0;
+      border-left: 7px solid white;
+      border-top: 18px solid transparent;
+      border-bottom: 18px solid transparent;
+      content:"";
+      position:absolute;
+      top:-8px;
+    }
+    &:after {
+      padding: 0;
+      content: none;
+      border-left: 8px solid @borderColor;
+    }
+//    &:first-child {
+//      &:before {
+//        border:0;
+//      }
+//    }
+    a {
+      background: @borderColor;
+      line-height: baseLineHeightPx!important;
+      padding: 10px 14px 10px 20px;
+      .transition(none);
+      &:after {
+        width:0;
+        height:0;
+        border-left: 8px solid @borderColor;
+        border-top: 18px solid transparent;
+        border-bottom: 18px solid transparent;
+        content:"";
+        position:absolute;
+        right:-8px;
+        top:-6px;
+      }
+      &:hover {
+        background:darken(@borderColor, 10%);
+        text-decoration:none;
+        &:after {
+          border-left: 8px solid darken(@borderColor, 10%);
+        }
+      }
+    }
+  }
+  > .active {
+    padding: 8px 16px 8px 20px;
+    background-color: @brandPrimary;
+    color: #fff;
+    font-weight: @headingsFontWeight;
+    &:before {
+      border-left: 7px solid white;
+      top:0;
+      left:0;
+    }
+    &:after {
+      border:0
+    }
+  }
+}
+
+.breadcrumb.block.small {
+  > li {
+    font-size:@fontSize - 2;
+    margin: 0 3px 0 0;
+    &:before {
+      border-left: 8px solid white;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      top:0;
+    }
+    a {
+      padding: 4px 10px 5px 16px;
+      &:after {
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        top: 0;
+      }
+    }
+  }
+  > .active {
+    padding: 1px 10px 4px 16px;
+  }
 }

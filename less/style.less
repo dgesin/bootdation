@@ -1,86 +1,99 @@
 /*!
- * DFM CSS Framework
+ * Bootdation
  *
- * Based on Bootstrap v2.2.1
- * Copyright 2012 Twitter, Inc
+ * Based on Bootstrap v3.0.0 and Foundation 4.2.3
+ * Copyright 2013 Twitter, Inc and ZURB
  * Licensed under the Apache License v2.0
  * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Cobbled together and maintained by Jonathan Boho
  */
+
 
 // Core variables and mixins
 @import "variables.less";
-@import "bootstrap/mixins.less";
+@import "bootstrap/mixins.less"; // what is the deal with how these are built???? gradient issues
+@import "custom/candidate-mixins.less";
+@import "custom/component-mixins.less";
 
-// CSS Reset
+// Reset
 @import "bootstrap/reset.less";
-
-// Grid system and page structure
-@import "bootstrap/scaffolding.less";
-
-// Base CSS
-@import "bootstrap/type.less";
-@import "bootstrap/code.less";
-@import "bootstrap/forms.less";
-@import "bootstrap/tables.less";
-
-// Print stylesheet
 @import "bootstrap/print.less";
 
-// Components: common
-@import "bootstrap/typography.less";
-@import "bootstrap/images.less";
-@import "bootstrap/sprites.less";
-@import "bootstrap/dropdowns.less";
-@import "bootstrap/wells.less";
-@import "bootstrap/component-animations.less";
-@import "bootstrap/close.less";
+// Core CSS
+@import "bootstrap/scaffolding.less";
+@import "bootstrap/type-base.less";
+@import "bootstrap/type-rare.less";
+@import "bootstrap/type-custom.less";
+@import "bootstrap/code.less";
 
-// Components: Buttons & Alerts
+@import "bootstrap/grid.less"; // need to test
+@import "bootstrap/tables.less";
+@import "bootstrap/forms.less";
 @import "bootstrap/buttons.less";
-@import "bootstrap/button-groups.less";
-@import "bootstrap/alerts.less"; 
-// Note: alerts share common CSS with buttons and thus have styles in buttons.less
+
+// Components: Common
+@import "bootstrap/component-animations.less";
+@import "bootstrap/glyphicons.less";
+@import "bootstrap/input-groups.less";
+@import "bootstrap/dropdowns.less";
+@import "bootstrap/list-group.less";
+@import "bootstrap/panels.less";
+@import "bootstrap/wells.less";
+@import "bootstrap/close.less";
+@import "bootstrap/callout.less";
 
 // Components: Nav
 @import "bootstrap/navs.less";
-@import "bootstrap/navbar.less";
-@import "bootstrap/breadcrumbs.less";
+@import "bootstrap/navbar.less";   // look at foundation alternatives
+@import "bootstrap/button-groups.less";
+@import "bootstrap/breadcrumbs.less";   // still needs tweaking -- add vars on block
 @import "bootstrap/pagination.less";
 @import "bootstrap/pager.less";
 
 // Components: Popovers
-@import "bootstrap/modals.less";
+@import "bootstrap/modals.less";   // look at foundation alternative -- like SECOND modal option
 @import "bootstrap/tooltip.less";
-@import "bootstrap/popovers.less";
+@import "bootstrap/popovers.less";  // js issues on this
 
 // Components: Misc
+@import "bootstrap/alerts.less";
 @import "bootstrap/thumbnails.less";
 @import "bootstrap/media.less";
-@import "bootstrap/video.less";
-@import "bootstrap/labels-badges.less";
+@import "bootstrap/labels.less";
+@import "bootstrap/badges.less";
 @import "bootstrap/progress-bars.less";
 @import "bootstrap/accordion.less";
-@import "bootstrap/carousel.less";
-@import "bootstrap/hero-unit.less";
-@import "bootstrap/microformats.less";
+@import "bootstrap/carousel.less"; // may sub out for orbit
+@import "bootstrap/jumbotron.less";
 
-// Styled patterns and elements
-//@import "plugins/chosen.less";
-//@import "plugins/wordpress.less";
-//@import "plugins/validation.less";
+// Foundation
+//@import "foundation/grid.less";  // good fallback -- but may not be needed
+//@import "foundation/block-grid.less";  // may need to revisit on new grid
+//@import "foundation/mobile-grid.less"; // may need to revisit on new grid
+@import "foundation/responsive-offcanvas.less";
+@import "foundation/responsive-tables.less";
+@import "foundation/flex-video.less";
+@import "foundation/switches.less";  // change colors????
+@import "foundation/pricing-tables.less";
+//@import "foundation/orbit.less";
+//@import "foundation/clearing.less";
+//@import "foundation/joyride.less";
+
+// Custom libs
+//@import "custom/microformats.less";
+
+// PLugins and vendors
+//@import "plugins/wordpress.less";  // any more to add?
+//@import "plugins/validation.less"; // needed with danger classes?
 @import "plugins/social-icons.less";
-@import "plugins/pretty-print.less";
+//@import "plugins/pretty-print.less";
 
 // Utility classes
-@import "bootstrap/utilities.less"; // Has to be last to override when necessary
-
-// Responsive
-@import "responsive/responsive-utilities.less";
-@import "responsive/responsive-1200px-min.less"; // Large desktops
-@import "responsive/responsive-768px-979px.less"; // Tablets to regular desktops
-@import "responsive/responsive-767px-max.less"; // Phones to portrait tablets and narrow desktops
-@import "responsive/responsive-navbar.less";
-@import "responsive/responsive-tables.less";
+@import "bootstrap/utilities.less";
+@import "bootstrap/debug.less";
+@import "bootstrap/chrome-frame.less";
+//@import "bootstrap/responsive-utilities.less";
 
 // and finally ... the css styles for the project
-@import "application.less";
+//@import "application.less";
